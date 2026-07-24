@@ -12,3 +12,7 @@ redis==5.0.0
 gunicorn==21.2.0
 psycopg[binary]>=3.2.0
 daphne==4.0.0
+dj-database-url==1.0.0
+whitenoise==6.5.0
+djangorestframework-simplejwt==5.3.1
+sentry-sdk==1.27.0

@@ -2,8 +2,6 @@ from datetime import datetime
 from decimal import Decimal
 
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -22,9 +20,8 @@ from .serializers import (
 )
 from .services import generate_barcode_image
 
-@method_decorator(csrf_exempt, name='dispatch')
 class ProductAPIView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdmin]
     @swagger_auto_schema(
         request_body=ProductCreateSerializer,
         responses={201: ProductCreateSerializer}
